@@ -1,0 +1,25 @@
+//
+//  XSCodingPrefix.pch
+//  XSCoding
+//
+//  Created by apple on 16/9/26.
+//  Copyright © 2016年 Lingser. All rights reserved.
+//
+
+#ifndef XSCodingPrefix_pch
+#define XSCodingPrefix_pch
+
+//所有的宏
+#import "Macr.h"
+
+//分类
+#import "UIView+XSFrame.h"
+#import "UIViewController+XSViewController.h"
+#import "UIColor+XSColor.h"
+#import "UIImage+XSImage.h"
+
+
+//公共常量
+#import "XSPublicConstant.h"
+
+#endif /* XSCodingPrefix_pch */

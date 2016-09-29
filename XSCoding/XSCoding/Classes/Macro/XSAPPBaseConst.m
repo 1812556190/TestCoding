@@ -12,7 +12,7 @@ NSString *const XSBaseAPIURLString = @"https://coding.net/";
 
 NSString *const XSRegisterURLString = @"api/v2/account/register";
 NSString *const XSRegisterCaptchaURLString = @"api/captcha/register";
-
+NSString *const XSServerHTML = @"serverTreaty";
 
 NSString *const XSLoginURLString = @"api/v2/account/login";
 NSString *const XSLoginCaptchaURLString = @"api/captcha/login";

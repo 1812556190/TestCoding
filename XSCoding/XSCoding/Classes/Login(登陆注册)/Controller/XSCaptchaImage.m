@@ -49,8 +49,8 @@
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self setTitle:@"获取验证码" forState:UIControlStateNormal];
     self.backgroundColor = [UIColor colorWithHex:0xe3e3 alpha:1];
-//    self.hidden = YES;
-    self.isCaptchaHiden = YES;
+    self.hidden = YES;
+//    self.isCaptchaHiden = YES;
     [self addTarget:self action:@selector(btnActon:) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -75,13 +75,13 @@
 }
 
 
-- (void)setIsCaptchaHiden:(BOOL)isCaptchaHiden{
-    _isCaptchaHiden = isCaptchaHiden;
-    if (!_isCaptchaHiden) {
-        self.hidden = NO;
-        return;
-    }
-    [self removeFromSuperview];
-}
+//- (void)setIsCaptchaHiden:(BOOL)isCaptchaHiden{
+//    _isCaptchaHiden = isCaptchaHiden;
+//    if (!_isCaptchaHiden) {
+//        self.hidden = NO;
+//        return;
+//    }
+//    [self removeFromSuperview];
+//}
 
 @end

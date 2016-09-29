@@ -8,7 +8,7 @@
 
 #import "XSLoginController.h"
 
-#import "XSLoginCell.h"
+#import "XSBaseTextFieldCell.h"
 
 #import "XSLoginRequst.h"
 
@@ -18,6 +18,13 @@
 #import "XSCaptchaRespon.h"
 
 #import <MJExtension.h>
+
+
+#import "XSBackPassWordController.h"
+
+
+
+
 
 
 @interface XSLoginController ()<UITableViewDelegate,UITableViewDataSource>{
@@ -79,7 +86,7 @@ static NSString *cellId = @"cellID";
 
 - (void)setterTableView{
     
-    [self.LoginTableView registerClass:[XSLoginCell class] forCellReuseIdentifier:cellId];
+    [self.LoginTableView registerClass:[XSBaseTextFieldCell class] forCellReuseIdentifier:cellId];
   //分割线样式
     self.LoginTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.LoginTableView.separatorColor = [UIColor lightGrayColor];
@@ -94,31 +101,33 @@ static NSString *cellId = @"cellID";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    XSLoginCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    
+    XSBaseTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSInteger cellIndex = indexPath.row;
+    cell.separaLineSelectColor = [UIColor whiteColor];
     if (cellIndex == 2) {
-        cell.captchaImage.isCaptchaHiden = NO;
+        cell.isCapIamgeHiden = NO;
     }else{
-        cell.captchaImage.isCaptchaHiden = YES;
+        cell.isCapIamgeHiden = YES;
     }
     __weak typeof(self) weakSelf = self;
     switch (cellIndex) {
         case 0:{
-            cell.textField.placeholder = @"手机号码/电子邮箱/个性后缀";
+            cell.textPlaceholder = @"手机号码/电子邮箱/个性后缀";
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.requstModel.account = text;
             };
             break;
         }
         case 1:{
-            cell.textField.placeholder = @"密码";
+            cell.textPlaceholder = @"密码";
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.requstModel.password = text;
             };
             break;
         }
         case 2:{
-            cell.textField.placeholder = @"验证码";
+            cell.textPlaceholder = @"验证码";
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.requstModel.j_captcha = text;
             };
@@ -127,6 +136,7 @@ static NSString *cellId = @"cellID";
         default:
             break;
     }
+    
     
  
     return cell;
@@ -177,6 +187,11 @@ static NSString *cellId = @"cellID";
 }
 
 - (IBAction)forgetPassWordAction:(UIButton *)sender {
+    
+    XSBackPassWordController *back = [[XSBackPassWordController alloc] init];
+    
+    [self presentViewController:back animated:YES completion:nil];
+    
 }
 
 

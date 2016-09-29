@@ -13,6 +13,10 @@ UIKIT_EXTERN NSString *const XSBaseAPIURLString;
 
 UIKIT_EXTERN NSString *const XSRegisterURLString;
 UIKIT_EXTERN NSString *const XSRegisterCaptchaURLString;
+UIKIT_EXTERN NSString *const XSServerHTML;
+
+
+
 UIKIT_EXTERN NSString *const XSLoginCaptchaURLString;
 UIKIT_EXTERN NSString *const XSLoginURLString;
 

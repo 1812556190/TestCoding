@@ -14,11 +14,6 @@
 @property (nonatomic, copy) void(^captchaImageBlock)(XSCaptchaImage *captchaImage);
 
 
-/**
- 是否隐藏视图，默认隐藏
- */
-@property (nonatomic, assign) BOOL isCaptchaHiden;
-
 
 /**
  刷新验证码

@@ -9,11 +9,14 @@
 #import "XSRegisterController.h"
 #import <MJExtension.h>
 
-#import "XSRegisterCell.h"
+#import "XSBaseTextFieldCell.h"
 
 #import "XSToolHttpRequst.h"
 #import "XSRegisterRequst.h"
 #import "XSCaptchaRespon.h"
+
+
+#import "XSWebController.h"
 
 
 
@@ -100,7 +103,10 @@ static NSString *cellId = @"CELLID";
 
 - (void)setterTableView{
     
-    [self.reigsterTableView registerClass:[XSRegisterCell class] forCellReuseIdentifier:cellId];
+    self.reigsterTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self.reigsterTableView registerClass:[XSBaseTextFieldCell class] forCellReuseIdentifier:cellId];
+
 }
 
 
@@ -114,38 +120,38 @@ static NSString *cellId = @"CELLID";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    XSRegisterCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    XSBaseTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSInteger cellIndex = indexPath.row;
     __weak typeof(self) weakSelf = self;//防止block引起循环引用
     if (cellIndex == 3) {
-        cell.capImage.isCaptchaHiden = NO;
+        cell.isCapIamgeHiden = NO;
     }else{
-       cell.capImage.isCaptchaHiden = YES;
+       cell.isCapIamgeHiden = YES;
     }
     switch (cellIndex) {
         case 0:{
-            cell.textField.placeholder = @"用户名,个性后缀";
+            cell.textPlaceholder = @"用户名,个性后缀";
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.registerRequst.global_key = text;
             };
             break;
         }
         case 1:{
-            cell.textField.placeholder = @"邮箱";
+            cell.textPlaceholder = @"邮箱";
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.registerRequst.email = text;
             };
             break;
         }
         case 2:{
-            cell.textField.placeholder = @"密码";
+            cell.textPlaceholder = @"密码";
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.registerRequst.password = text;
             };
             break;
         }
         case 3:{
-            cell.textField.placeholder = @"验证码";
+            cell.textPlaceholder = @"验证码";
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.registerRequst.j_captcha = text;
             };
@@ -163,14 +169,16 @@ static NSString *cellId = @"CELLID";
 
 #pragma mark - BtnAction
 
+//返回上一页面
 - (void)leftCancel{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //手势调用
 - (void)tapAction:(UITapGestureRecognizer *)tap{
-    
-   
+    XSWebController *webViewVc = [[XSWebController alloc] init];
+    webViewVc.webViewUrl = XSServerHTML;
+    [self.navigationController pushViewController:webViewVc animated:YES];
 }
 
 - (IBAction)registerAction:(UIButton *)sender {

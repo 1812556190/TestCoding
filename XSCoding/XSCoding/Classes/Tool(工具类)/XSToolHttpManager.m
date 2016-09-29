@@ -42,35 +42,35 @@ static XSToolHttpManager *networking = nil;
 }
 
 
-#pragma mark - Public
-
-
-- (void)login:(NSDictionary *)parameter withSuccessHander:(successHandler)successHander{
-    [self postHttpUrl:@"" Parameter:parameter withSuccessHander:^(id resulst, NSError *error) {
-        if (successHander) {
-            if (error) {
-                successHander(nil,error);
-            }else{
-                successHander(resulst,nil);
-            }
-        }
-    }];
-}
-
 
 #pragma mark - private
 
-
+//post请求
 - (void)postHttpUrl:(NSString *)url Parameter:(NSDictionary *)parameter withSuccessHander:(successHandler)successHander{
     
-    [self.manager POST:url parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager POST:url parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error = [self handlerErrorWithData:responseObject];
         if (successHander) {
-            successHander(responseObject,nil);
+            successHander(responseObject,error);
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         [self handlerErrorWithData:error];
+        if (successHander) {
+            successHander(nil,error);
+        }
+    }];
+}
+//get请求
+- (void)getHttpUrl:(NSString *)url Parameter:(NSDictionary *)parameter withSuccessHander:(successHandler)successHander{
+    [self.manager GET:url parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+         NSError *error = [self handlerErrorWithData:responseObject];
+        if (successHander) {
+            successHander(responseObject,error);
+        }
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         [self handlerErrorWithData:error];
         if (successHander) {
             successHander(nil,error);
         }
@@ -83,7 +83,9 @@ static XSToolHttpManager *networking = nil;
     NSError *error;
     if ([data isKindOfClass:[NSDictionary class]]) {
         NSInteger errorCode = [data[@"code"] integerValue];
-        if (errorCode == 404) {
+        if (errorCode == 0) {
+            return nil;
+        }else if (errorCode == 404) {
             [XSHUDView showHUDViewTitle:@"网络错误，请稍后再试！"];
         }else if (errorCode == 1000){
            
@@ -104,8 +106,7 @@ static XSToolHttpManager *networking = nil;
 
 - (AFHTTPSessionManager *)manager{
     if (!_manager) {
-#warning NO setting Base URL
-        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:nil]];
+        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:XSBaseAPIURLString]];
         _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
     }
     return _manager;

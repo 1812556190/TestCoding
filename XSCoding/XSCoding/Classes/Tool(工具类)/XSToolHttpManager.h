@@ -8,23 +8,41 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, ErrorType) {
+    ErrorTypeUserName = 1,
+    ErrorTypeCaptcha = 903,
+    ErrorTypeError = 1025,
+};
+
+
 typedef void(^successHandler)(id resulst,NSError *error);
 
 @interface XSToolHttpManager : NSObject
-
 
 
 + (instancetype)shareInstance;
 
 
 
+
 /**
- *
- * 登陆请求
- * @param parameter      请求的参数
- * @param successHander  成功的回调
+ 使用AFN进行POST请求
+
+ @param url           Url
+ @param parameter     传入的参数
+ @param successHander 结果回调
  */
-- (void)login:(NSDictionary *)parameter withSuccessHander:(successHandler)successHander;
+- (void)postHttpUrl:(NSString *)url Parameter:(NSDictionary *)parameter withSuccessHander:(successHandler)successHander;
+
+
+/**
+ 使用AFN进行GET请求
+
+ @param url           url
+ @param parameter     传入的参数
+ @param successHander 结果回调
+ */
+- (void)getHttpUrl:(NSString *)url Parameter:(NSDictionary *)parameter withSuccessHander:(successHandler)successHander;
 
 
 @end

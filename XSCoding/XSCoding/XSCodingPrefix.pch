@@ -12,14 +12,16 @@
 //所有的宏
 #import "Macr.h"
 
-//分类
+//类目
 #import "UIView+XSFrame.h"
 #import "UIViewController+XSViewController.h"
 #import "UIColor+XSColor.h"
 #import "UIImage+XSImage.h"
+#import "NSString+XSEncryption.h"
 
 
 //公共常量
 #import "XSPublicConstant.h"
+#import "XSAPPBaseConst.h"
 
 #endif /* XSCodingPrefix_pch */

@@ -3,5 +3,7 @@ target "XSCoding"  do
 pod 'AFNetworking'
 pod 'MBProgressHUD'
 pod 'Masonry'
+pod 'MJExtension'
+pod 'SDWebImage'
 end
 

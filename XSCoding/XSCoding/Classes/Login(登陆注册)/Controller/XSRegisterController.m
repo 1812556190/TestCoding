@@ -9,6 +9,8 @@
 #import "XSRegisterController.h"
 #import <MJExtension.h>
 
+#import "XSUserInfo.h"
+
 #import "XSBaseTextFieldCell.h"
 
 #import "XSToolHttpRequst.h"
@@ -18,14 +20,18 @@
 
 #import "XSWebController.h"
 
+#import "AppDelegate.h"
+
 
 
 @interface XSRegisterController ()<UITableViewDelegate,UITableViewDataSource>{
     BOOL _isCaptcha;
+    BOOL _isRefreshCaptcha;//是否刷新验证码
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *reigsterTableView;
 
+@property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *serverLabel;
 
@@ -41,7 +47,7 @@ static NSString *cellId = @"CELLID";
     [super viewDidLoad];
     [self isRegisterCaptcha];//判断是否需要验证吗
     [self setterSubView];//加载子视图
-
+   
 }
 
 
@@ -51,10 +57,13 @@ static NSString *cellId = @"CELLID";
 
 
 - (void)setterSubView{
-
+   
     [self navigationSetter];//设置导航栏及状态栏
     
     [self setterTableView];//设置tableview
+    
+    _isRefreshCaptcha = NO;
+    self.registerBtn.enabled = NO;
     
     [self addTapGesture];//添加手势
     
@@ -96,6 +105,8 @@ static NSString *cellId = @"CELLID";
   
     self.title = @"注册";
     
+    [self.navigationController.navigationBar setHidden:NO];
+    
     UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(leftCancel)];
     self.navigationItem.leftBarButtonItem = leftBtn;
     
@@ -121,6 +132,9 @@ static NSString *cellId = @"CELLID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     XSBaseTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+    cell.isRefreshCaptcha = _isRefreshCaptcha;//是否刷新验证码
+   
     NSInteger cellIndex = indexPath.row;
     __weak typeof(self) weakSelf = self;//防止block引起循环引用
     if (cellIndex == 3) {
@@ -145,8 +159,10 @@ static NSString *cellId = @"CELLID";
         }
         case 2:{
             cell.textPlaceholder = @"密码";
+            cell.isTextSecureTextEntry = YES;
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.registerRequst.password = text;
+                weakSelf.registerBtn.enabled = YES;
             };
             break;
         }
@@ -154,6 +170,7 @@ static NSString *cellId = @"CELLID";
             cell.textPlaceholder = @"验证码";
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.registerRequst.j_captcha = text;
+                 weakSelf.registerBtn.enabled = YES;
             };
             break;
         }
@@ -161,6 +178,7 @@ static NSString *cellId = @"CELLID";
             break;
     }
     
+    cell.placeholderColor = [UIColor colorR:223 withG:223 withB:223 Alpha:0.8];//设置颜色
     
     return cell;
 }
@@ -197,12 +215,27 @@ static NSString *cellId = @"CELLID";
     //3.进行注册请求
     __weak typeof(self) weakSelf = self;
     [XSToolHttpRequst registerRequstParameter:self.registerRequst.mj_keyValues withSuccessHander:^(id resulst, NSError *error) {
+    
         if (error) {
             [weakSelf isRegisterCaptcha];
+            _isRefreshCaptcha = YES;
             
         }else{
             //注册成功后进行处理
             NSLog(@"注册成功");
+            
+            AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            
+            [del setUpStartMainView];
+            
+            
+            
+            XSUserInfo *user = [XSUserInfo mj_objectWithKeyValues:@{@"lavatar":@"kkkk"}];
+            [user saveData];//归档
+            NSLog(@"%@",NSHomeDirectory());
+           [XSUserInfo  obtainData];//解档
+
+            NSLog(@"%@",user.lavatar);
         }
     }];
     

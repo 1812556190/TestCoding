@@ -59,7 +59,7 @@
 
 - (void)btnActon:(UIButton *)btn{
     
-    [self refreshCaptchaImageUrl:CaptchaIamgeUrlStr];
+    [self refreshCaptchaImage];
     
 //    if (self.captchaImageBlock) {
 //        self.captchaImageBlock(self);
@@ -67,8 +67,8 @@
 }
 #pragma mark - public
 
-- (void)refreshCaptchaImageUrl:(NSString *)url{
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url] options:NSDataReadingMappedIfSafe error:nil];
+- (void)refreshCaptchaImage{
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:CaptchaIamgeUrlStr] options:NSDataReadingMappedIfSafe error:nil];
     UIImage *image= [UIImage imageWithData:data];
     [self setTitle:@"" forState:UIControlStateNormal];
     [self setImage:image forState:UIControlStateNormal];

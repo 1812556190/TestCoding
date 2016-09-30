@@ -40,10 +40,12 @@
     self.backgroundColor = [UIColor clearColor];
     
     
-    //设置自定义属性
+    //设置自定义属性的默认设置
     self.separaLineDefaultColor = [UIColor lightGrayColor];
     self.separaLineSelectColor = self.separaLineDefaultColor;
     self.isSeparaLineHiden = NO;//设置分割线默认显示
+    self.isRefreshCaptcha = NO;//设置初始化不需要刷新验证码
+    self.isTextSecureTextEntry = NO;
 }
 
 
@@ -94,7 +96,9 @@
 //结束编辑
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     self.separaLineView.backgroundColor = self.separaLineDefaultColor;
+
 }
+
 
 
 #pragma mark - 修改cell的属性
@@ -123,8 +127,32 @@
     }
 }
 
+- (void)setIsRefreshCaptcha:(BOOL)isRefreshCaptcha{
+    _isRefreshCaptcha = isRefreshCaptcha;
+    if (_isRefreshCaptcha) {
+        [self.captchaImage refreshCaptchaImage];
+    }
+}
 
 
+-(void)setPlaceholderColor:(UIColor *)placeholderColor{
+    _placeholderColor = placeholderColor;
+    if (self.textField.placeholder.length == 0) {
+        return;
+    }
+    self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.textField.placeholder attributes:@{NSForegroundColorAttributeName:self.placeholderColor}];
+}
+
+- (void)setIsTextSecureTextEntry:(BOOL)isTextSecureTextEntry{
+    _isTextSecureTextEntry = isTextSecureTextEntry;
+    if (_isTextSecureTextEntry) {
+        self.textField.secureTextEntry = YES;
+    }else{
+        self.textField.secureTextEntry = NO;
+    }
+    
+    
+}
 
 
 
@@ -134,6 +162,8 @@
     if (!_textField) {
         _textField = [[UITextField alloc] init];
         _textField.delegate = self;
+        _textField.clearsOnBeginEditing = YES;
+        _textField.clearButtonMode = UITextFieldViewModeWhileEditing;//设置清除按钮样式
         
     }
     return _textField;

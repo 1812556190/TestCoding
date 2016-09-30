@@ -26,6 +26,10 @@
 #define XSSREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define XSSREENHEIGHT [UIScreen mainScreen].bounds.size.height
 
+#define DocumentPath [NSHomeDirectory() stringByAppendingString:@"/Documents"]
+
+#define ClassName NSStringFromClass([self class])
+
 
 
 #endif /* Macr_h */

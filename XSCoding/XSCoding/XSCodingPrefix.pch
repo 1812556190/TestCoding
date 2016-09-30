@@ -18,6 +18,7 @@
 #import "UIColor+XSColor.h"
 #import "UIImage+XSImage.h"
 #import "NSString+XSEncryption.h"
+#import "NSObject+XSAccess.h"
 
 
 //公共常量

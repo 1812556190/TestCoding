@@ -96,7 +96,8 @@
 - (IBAction)loginAction:(UIButton *)sender {
     
     UIViewController *loginVc = [UIViewController storyboardWithName:PublicStorboard instantiateViewControllerWithIdentifier:LoginController];
-    [self presentViewController:loginVc animated:YES completion:nil];
+        UINavigationController *nva = [[UINavigationController alloc] initWithRootViewController:loginVc];
+    [self presentViewController:nva animated:YES completion:nil];
     
 }
 

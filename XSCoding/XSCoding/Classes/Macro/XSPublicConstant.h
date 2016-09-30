@@ -11,6 +11,8 @@
 
 UIKIT_EXTERN NSString *const PublicStorboard;
 
+UIKIT_EXTERN NSString *const MainStorboard;
+
 UIKIT_EXTERN NSString *const GuideViewController;
 
 UIKIT_EXTERN NSString *const RegisterController;

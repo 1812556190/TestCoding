@@ -14,10 +14,11 @@
 + (UIViewController *)storyboardWithName:(NSString *)name instantiateViewControllerWithIdentifier:(NSString *)identifier{
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:name bundle:nil];
-    
-    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:identifier];
-    
-    return vc;
+    if (identifier) {
+          return [storyboard instantiateViewControllerWithIdentifier:identifier];
+    }else{
+        return [storyboard instantiateInitialViewController];
+    }
 }
 
 @end

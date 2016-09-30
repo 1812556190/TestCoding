@@ -8,7 +8,7 @@
 
 #import "XSTabBarController.h"
 #import "XSBaseNavigationController.h"
-#import "UIColor+XSColor.h"
+
 @interface XSTabBarController ()
 
 @end

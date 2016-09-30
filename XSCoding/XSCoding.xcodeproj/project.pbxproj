@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181E80281D9E08710065C03D /* NSObject+XSAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E80271D9E08710065C03D /* NSObject+XSAccess.m */; };
+		181E802B1D9E10760065C03D /* XSUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E802A1D9E10760065C03D /* XSUserInfo.m */; };
+		181E802E1D9E4B430065C03D /* UITextField+XSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E802D1D9E4B430065C03D /* UITextField+XSTextField.m */; };
 		1846AC5A1D98C8BB00ECEE56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846AC591D98C8BB00ECEE56 /* main.m */; };
 		1846AC631D98C8BC00ECEE56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1846AC611D98C8BC00ECEE56 /* Main.storyboard */; };
 		1846AC651D98C8BC00ECEE56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1846AC641D98C8BC00ECEE56 /* Assets.xcassets */; };
@@ -66,6 +69,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181E80261D9E08710065C03D /* NSObject+XSAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+XSAccess.h"; sourceTree = "<group>"; };
+		181E80271D9E08710065C03D /* NSObject+XSAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+XSAccess.m"; sourceTree = "<group>"; };
+		181E80291D9E10760065C03D /* XSUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSUserInfo.h; sourceTree = "<group>"; };
+		181E802A1D9E10760065C03D /* XSUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSUserInfo.m; sourceTree = "<group>"; };
+		181E802C1D9E4B430065C03D /* UITextField+XSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+XSTextField.h"; sourceTree = "<group>"; };
+		181E802D1D9E4B430065C03D /* UITextField+XSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+XSTextField.m"; sourceTree = "<group>"; };
 		1846AC551D98C8BB00ECEE56 /* XSCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XSCoding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1846AC591D98C8BB00ECEE56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1846AC621D98C8BC00ECEE56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -349,6 +358,10 @@
 				18D622C01D9A5E7400F6BE6F /* UIImage+XSImage.m */,
 				18E624A71D9BAFF6006C4B37 /* NSString+XSEncryption.h */,
 				18E624A81D9BAFF6006C4B37 /* NSString+XSEncryption.m */,
+				181E80261D9E08710065C03D /* NSObject+XSAccess.h */,
+				181E80271D9E08710065C03D /* NSObject+XSAccess.m */,
+				181E802C1D9E4B430065C03D /* UITextField+XSTextField.h */,
+				181E802D1D9E4B430065C03D /* UITextField+XSTextField.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -619,6 +632,8 @@
 		18E6249C1D9BA3E3006C4B37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				181E80291D9E10760065C03D /* XSUserInfo.h */,
+				181E802A1D9E10760065C03D /* XSUserInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -851,10 +866,13 @@
 				1846ACC41D98CF8E00ECEE56 /* XSMassgeController.m in Sources */,
 				18D511FA1D9CB59D00BADF58 /* XSToolHttpRequst.m in Sources */,
 				18E624AF1D9BB4C7006C4B37 /* XSCaptchaImage.m in Sources */,
+				181E802E1D9E4B430065C03D /* UITextField+XSTextField.m in Sources */,
 				18D622B81D9A200700F6BE6F /* XSPublicConstant.m in Sources */,
 				1846ACC71D98CFA000ECEE56 /* XSMineController.m in Sources */,
 				18E624AC1D9BB2BE006C4B37 /* XSCaptchaRespon.m in Sources */,
 				18E624A11D9BA3E3006C4B37 /* XSLoginController.m in Sources */,
+				181E80281D9E08710065C03D /* NSObject+XSAccess.m in Sources */,
+				181E802B1D9E10760065C03D /* XSUserInfo.m in Sources */,
 				1846ACB21D98CE8600ECEE56 /* XSTabBarController.m in Sources */,
 				1846ACBB1D98CF4D00ECEE56 /* XSProjectController.m in Sources */,
 				1846ACD91D990DA900ECEE56 /* UIView+XSFrame.m in Sources */,

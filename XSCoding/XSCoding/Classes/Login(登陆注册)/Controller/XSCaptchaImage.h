@@ -4,7 +4,7 @@
 //
 //  Created by apple on 16/9/28.
 //  Copyright © 2016年 Lingser. All rights reserved.
-//
+//  验证码按钮
 
 #import <UIKit/UIKit.h>
 
@@ -17,9 +17,7 @@
 
 /**
  刷新验证码
-
- @param url 验证码的Url
  */
-- (void)refreshCaptchaImageUrl:(NSString *)url;
+- (void)refreshCaptchaImage;
 
 @end

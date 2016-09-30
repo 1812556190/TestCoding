@@ -10,6 +10,9 @@
 
 NSString *const PublicStorboard = @"Public";
 
+NSString *const MainStorboard = @"Main";
+
+
 NSString *const GuideViewController = @"XSGuideController";
 
 NSString *const RegisterController = @"XSRegisterController";

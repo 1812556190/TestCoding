@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "XSUserInfo.h"
 
 @interface AppDelegate ()
 
@@ -19,11 +20,10 @@
     
     [self initViewDefault];
     
-    BOOL isFirst = [[NSUserDefaults standardUserDefaults] boolForKey:@"isFirst"];
-    if (!isFirst) {
-        [self launchGuideController];
-    }else{
+    if (![XSUserInfo obtainData]) {
         
+    }else{
+         [self launchGuideController];
     }
     
     
@@ -65,6 +65,12 @@
     self.window.rootViewController = guideVc;
 }
 
+
+- (void)setUpStartMainView{
+    
+    UIViewController *tabBarVc = [UIViewController storyboardWithName:MainStorboard instantiateViewControllerWithIdentifier:nil];
+    self.window.rootViewController = tabBarVc;
+}
 
 //初始化设置控件属性
 - (void)initViewDefault{

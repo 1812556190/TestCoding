@@ -29,10 +29,15 @@
 
 @interface XSLoginController ()<UITableViewDelegate,UITableViewDataSource>{
     BOOL _isCaptcha;
+    BOOL _isRefreshCaptcha;//是否刷新验证码
 }
 @property (weak, nonatomic) IBOutlet UITableView *LoginTableView;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 @property (strong, nonatomic) XSLoginRequst *requstModel;
+
+
+@property (strong, nonatomic) UIImageView *backImageView;
 
 
 @end
@@ -43,9 +48,13 @@ static NSString *cellId = @"cellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _isRefreshCaptcha = NO;//设置初始值
     
     //设置状态栏
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    [self.navigationController.navigationBar setHidden:YES];//隐藏导航栏
+    
+    self.LoginTableView.backgroundView = self.backImageView;
     
     [self isNeedLoginCaptcha];//判断登陆是否需要验证吗
       
@@ -105,6 +114,7 @@ static NSString *cellId = @"cellID";
     XSBaseTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSInteger cellIndex = indexPath.row;
     cell.separaLineSelectColor = [UIColor whiteColor];
+    cell.isRefreshCaptcha = _isRefreshCaptcha;
     if (cellIndex == 2) {
         cell.isCapIamgeHiden = NO;
     }else{
@@ -121,6 +131,7 @@ static NSString *cellId = @"cellID";
         }
         case 1:{
             cell.textPlaceholder = @"密码";
+            cell.isTextSecureTextEntry = YES;
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.requstModel.password = text;
             };
@@ -137,7 +148,7 @@ static NSString *cellId = @"cellID";
             break;
     }
     
-    
+     cell.placeholderColor = [UIColor colorR:223 withG:223 withB:223 Alpha:0.8];//设置颜色
  
     return cell;
 }
@@ -168,6 +179,7 @@ static NSString *cellId = @"cellID";
 //
 - (IBAction)loginAction:(UIButton *)sender {
     [self.view endEditing:NO];
+    
     //1.验证登陆数据的合理性(正则)
     //2.数据处理
     self.requstModel.remember_me = self.requstModel.account;
@@ -177,6 +189,7 @@ static NSString *cellId = @"cellID";
     [XSToolHttpRequst requstLoginParameter:self.requstModel.mj_keyValues withSuccessHander:^(id resulst, NSError *error) {
         if (error) {
             [weakSelf isNeedLoginCaptcha];
+            _isRefreshCaptcha = YES;
         }else{
             //登陆成功后的处理
             NSLog(@"登陆成功！");
@@ -190,7 +203,7 @@ static NSString *cellId = @"cellID";
     
     XSBackPassWordController *back = [[XSBackPassWordController alloc] init];
     
-    [self presentViewController:back animated:YES completion:nil];
+    [self.navigationController pushViewController:back animated:YES];
     
 }
 
@@ -198,9 +211,9 @@ static NSString *cellId = @"cellID";
 //注册
 - (IBAction)goRegisterAction:(UIButton *)sender {
     UIViewController *reigsterVc = [UIViewController storyboardWithName:PublicStorboard instantiateViewControllerWithIdentifier:RegisterController];
-    UINavigationController *nva = [[UINavigationController alloc] initWithRootViewController:reigsterVc];
+//    UINavigationController *nva = [[UINavigationController alloc] initWithRootViewController:reigsterVc];
     
-    [self presentViewController:nva animated:YES completion:nil];
+    [self.navigationController pushViewController:reigsterVc animated:YES];
 }
 
 
@@ -211,6 +224,22 @@ static NSString *cellId = @"cellID";
         _requstModel = [[XSLoginRequst alloc] init];
     }
     return _requstModel;
+}
+
+- (UIImageView *)backImageView{
+    if (!_backImageView) {
+        UIImage *image = [UIImage imageNamed:@"STARTIMAGE"];
+        _backImageView = [[UIImageView alloc] initWithImage:image];
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        [_backImageView addSubview:effectView];
+        
+        [effectView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(_backImageView);
+        }];
+
+    }
+   return _backImageView;
 }
 
 

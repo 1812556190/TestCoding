@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
 UIKIT_EXTERN NSString *const XSBaseAPIURLString;
 
+//注册常量
 UIKIT_EXTERN NSString *const XSRegisterURLString;
 UIKIT_EXTERN NSString *const XSRegisterCaptchaURLString;
 UIKIT_EXTERN NSString *const XSServerHTML;
 
 
-
+//登录常量
 UIKIT_EXTERN NSString *const XSLoginCaptchaURLString;
 UIKIT_EXTERN NSString *const XSLoginURLString;
 

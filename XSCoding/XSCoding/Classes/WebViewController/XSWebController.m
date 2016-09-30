@@ -7,10 +7,12 @@
 //
 
 #import "XSWebController.h"
+#import <WebKit/WebKit.h>
 
 @interface XSWebController ()
 
-@property (strong, nonatomic)UIWebView *webView;
+
+@property (strong, nonatomic)WKWebView *wkWebView;
 
 @end
 
@@ -24,20 +26,29 @@
 }
 
 - (void)loadWebView{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:self.webViewUrl ofType:@"html"];
     
+    
+    
+    //获取HTML文件的本地路径
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:self.webViewUrl ofType:@"html"];
+    //将本地路径转成URL
     NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
     
     //加载本地Html文件
     //方式一
+    //将本地路径转成NSString
     NSString *htmlStr = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    
-    [self.webView loadHTMLString:htmlStr baseURL:fileUrl];
+    //通过字符串的方式加载html
+    [self.wkWebView loadHTMLString:htmlStr baseURL:fileUrl];
     
 //    //方式二
+    //创建一个请求
 //    NSURLRequest *request = [NSURLRequest requestWithURL:fileUrl];
-//    
+//    //加载请求
 //    [self.webView loadRequest:request];
+    
+    
+    
     
 }
 
@@ -57,15 +68,16 @@
 }
 
 
-
-- (UIWebView *)webView{
-    if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, XSSREENWIDTH, XSSREENHEIGHT - 64)];
-        [self.view addSubview:_webView];
+#pragma mark - 懒加载web视图
+- (WKWebView *)wkWebView{
+    if (!_wkWebView) {
+        _wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:_wkWebView];
     }
     
-    return _webView;
+    return _wkWebView;
 }
+
 
 
 /*

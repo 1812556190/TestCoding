@@ -43,7 +43,7 @@
     
     [[XSToolHttpManager shareInstance] postHttpUrl:XSRegisterURLString Parameter:parameter withSuccessHander:^(id resulst, NSError *error) {
         
-        NSLog(@"%ld",error.code);
+        error = nil;
         if (error) {
             if (error.code == ErrorTypeCaptcha ||
                 error.code == ErrorTypeUserName||

@@ -10,4 +10,14 @@
 
 @implementation XSLoginRequst
 
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _remember_me = @"true";
+    }
+    return self;
+}
+
 @end

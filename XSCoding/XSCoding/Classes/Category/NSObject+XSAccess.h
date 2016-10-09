@@ -27,4 +27,12 @@
  */
 + (instancetype)obtainData;
 
+
+/**
+ 删除本地保存的信息
+
+ @return 是否成功
+ */
++ (BOOL)deleteData;
+
 @end

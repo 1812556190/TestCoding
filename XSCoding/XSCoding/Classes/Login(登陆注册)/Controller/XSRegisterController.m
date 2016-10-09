@@ -222,20 +222,14 @@ static NSString *cellId = @"CELLID";
             
         }else{
             //注册成功后进行处理
-            NSLog(@"注册成功");
+            NSLog(@"%@",resulst);
             
             AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
             
             [del setUpStartMainView];
             
-            
-            
-            XSUserInfo *user = [XSUserInfo mj_objectWithKeyValues:@{@"lavatar":@"kkkk"}];
+            XSUserInfo *user = [XSUserInfo mj_objectWithKeyValues:resulst];
             [user saveData];//归档
-            NSLog(@"%@",NSHomeDirectory());
-           [XSUserInfo  obtainData];//解档
-
-            NSLog(@"%@",user.lavatar);
         }
     }];
     

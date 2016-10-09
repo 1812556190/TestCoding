@@ -44,6 +44,13 @@
 }
 
 
+//直接传入错误信息
++ (void)showHUDViewError:(NSError *)error{
+    NSDictionary *dictionary = error.userInfo[@"msg"];
+    [self showHUDViewTitle:[[dictionary allValues] firstObject]];
+}
+
+
 
 //提示文字
 + (void)showHUDViewTitle:(NSString *)text{

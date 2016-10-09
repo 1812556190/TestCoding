@@ -13,4 +13,7 @@
 
 - (NSString *)stringWithSha1;
 
+
+- (NSString *)imageUrlWithStringSize:(CGFloat)size;
+
 @end

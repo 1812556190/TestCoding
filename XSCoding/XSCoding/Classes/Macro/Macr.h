@@ -28,6 +28,10 @@
 
 #define DocumentPath [NSHomeDirectory() stringByAppendingString:@"/Documents"]
 
+#define CacheParh [NSHomeDirectory() stringByAppendingString:@"/Library/Caches"]
+
+
+
 #define ClassName NSStringFromClass([self class])
 
 

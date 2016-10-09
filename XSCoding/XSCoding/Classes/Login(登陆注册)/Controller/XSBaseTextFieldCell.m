@@ -76,6 +76,7 @@
         make.centerY.equalTo(self.contentView);
         make.size.mas_equalTo(CGSizeMake(60, 25));
     }];
+    
 }
 
 
@@ -102,6 +103,12 @@
 
 
 #pragma mark - 修改cell的属性
+
+- (void)setTextTitle:(NSString *)textTitle{
+    _textTitle = textTitle;
+    self.textField.text = textTitle;
+}
+
 - (void)setTextPlaceholder:(NSString *)textPlaceholder{
     _textPlaceholder = textPlaceholder;
     self.textField.placeholder = textPlaceholder;
@@ -164,6 +171,8 @@
         _textField.delegate = self;
         _textField.clearsOnBeginEditing = YES;
         _textField.clearButtonMode = UITextFieldViewModeWhileEditing;//设置清除按钮样式
+        //不让首字母大写
+        _textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         
     }
     return _textField;

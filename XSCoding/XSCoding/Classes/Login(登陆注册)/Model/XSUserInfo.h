@@ -46,4 +46,14 @@
 @property (copy, nonatomic) NSString *phone;
 @property (copy, nonatomic) NSString *global_key;
 
+
+
+/**
+ 获取本地的用户信息 当本地没有信息时就会返回空值
+
+ @return 返回对象本身
+ */
++ (instancetype)shareDefaultUserInfo;
+
+
 @end

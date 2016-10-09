@@ -19,3 +19,6 @@ NSString *const RegisterController = @"XSRegisterController";
 
 NSString *const LoginController = @"XSLoginController";
 
+
+NSString *const SettingController = @"XSSettingController";
+

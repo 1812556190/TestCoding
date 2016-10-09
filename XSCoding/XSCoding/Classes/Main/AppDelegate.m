@@ -18,9 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    NSLog(@"%@",NSHomeDirectory());
+    
     [self initViewDefault];
     
-    if (![XSUserInfo obtainData]) {
+    if ([XSUserInfo obtainData]) {
         
     }else{
          [self launchGuideController];

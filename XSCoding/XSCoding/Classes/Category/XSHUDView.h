@@ -47,4 +47,12 @@
  */
 + (void)showLoadingProcessText:(NSString *)text;
 
+
+/**
+ 提示错误信息
+
+ @param error 错误
+ */
++ (void)showHUDViewError:(NSError *)error;
+
 @end

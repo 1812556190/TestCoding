@@ -30,6 +30,13 @@
 }
 
 
++ (BOOL)deleteData{
+    
+   return [[NSFileManager defaultManager] removeItemAtPath:FilePath error:nil];
+    
+}
+
+
 
 
 

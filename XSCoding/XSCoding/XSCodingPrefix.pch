@@ -19,6 +19,7 @@
 #import "UIImage+XSImage.h"
 #import "NSString+XSEncryption.h"
 #import "NSObject+XSAccess.h"
+#import "NSAttributedString+XSAttributed.h"
 
 
 //公共常量

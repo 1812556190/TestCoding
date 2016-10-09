@@ -71,7 +71,7 @@
 #pragma mark - 懒加载web视图
 - (WKWebView *)wkWebView{
     if (!_wkWebView) {
-        _wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+        _wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0,0, XSSREENWIDTH, XSSREENHEIGHT - 49)];
         [self.view addSubview:_wkWebView];
     }
     

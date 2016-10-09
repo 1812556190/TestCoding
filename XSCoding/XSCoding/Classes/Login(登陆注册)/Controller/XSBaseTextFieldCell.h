@@ -43,6 +43,9 @@
 @property (nonatomic, strong) UIColor *placeholderColor;
 
 
+
+@property (nonatomic, copy) NSString *textTitle;
+
 /**
  设置输入框是否以密文形式输入
  */

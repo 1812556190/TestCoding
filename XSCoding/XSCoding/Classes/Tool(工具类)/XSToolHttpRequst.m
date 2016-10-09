@@ -24,12 +24,8 @@
 + (void)requstLoginParameter:(NSDictionary *)parameter withSuccessHander:(successHandler)successHander{
     
     [[XSToolHttpManager shareInstance] postHttpUrl:XSLoginURLString Parameter:parameter withSuccessHander:^(id resulst, NSError *error) {
-        NSLog(@"%@",error);
+//        NSLog(@"%@",error);
         if (error) {
-            if (error.code) {
-                NSDictionary *dictionary = error.userInfo[@"msg"];
-                [XSHUDView showHUDViewTitle:[[dictionary allValues] firstObject]];
-            }
             successHander(nil,error);
         }else{
             successHander(resulst,nil);
@@ -43,7 +39,7 @@
     
     [[XSToolHttpManager shareInstance] postHttpUrl:XSRegisterURLString Parameter:parameter withSuccessHander:^(id resulst, NSError *error) {
         
-        error = nil;
+//        error = nil;
         if (error) {
             if (error.code == ErrorTypeCaptcha ||
                 error.code == ErrorTypeUserName||

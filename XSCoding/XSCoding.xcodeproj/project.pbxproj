@@ -29,6 +29,9 @@
 		1846ACD21D99026400ECEE56 /* XSToolHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846ACD11D99026400ECEE56 /* XSToolHttpManager.m */; };
 		1846ACD51D990A2D00ECEE56 /* XSHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846ACD41D990A2D00ECEE56 /* XSHUDView.m */; };
 		1846ACD91D990DA900ECEE56 /* UIView+XSFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846ACD81D990DA900ECEE56 /* UIView+XSFrame.m */; };
+		185D3F411DA8D548007E30B7 /* XSMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D3F401DA8D548007E30B7 /* XSMineHeaderView.m */; };
+		185D3F441DA90C9F007E30B7 /* XSTapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D3F431DA90C9F007E30B7 /* XSTapImageView.m */; };
+		185D3F471DA90F18007E30B7 /* NSAttributedString+XSAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D3F461DA90F18007E30B7 /* NSAttributedString+XSAttributed.m */; };
 		18D511F71D9CB39600BADF58 /* XSLoginRequst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D511F61D9CB39600BADF58 /* XSLoginRequst.m */; };
 		18D511FA1D9CB59D00BADF58 /* XSToolHttpRequst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D511F91D9CB59D00BADF58 /* XSToolHttpRequst.m */; };
 		18D511FE1D9CE4F400BADF58 /* XSWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D511FD1D9CE4F400BADF58 /* XSWebController.m */; };
@@ -48,6 +51,10 @@
 		18E624A91D9BAFF6006C4B37 /* NSString+XSEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E624A81D9BAFF6006C4B37 /* NSString+XSEncryption.m */; };
 		18E624AC1D9BB2BE006C4B37 /* XSCaptchaRespon.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E624AB1D9BB2BE006C4B37 /* XSCaptchaRespon.m */; };
 		18E624AF1D9BB4C7006C4B37 /* XSCaptchaImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E624AE1D9BB4C7006C4B37 /* XSCaptchaImage.m */; };
+		18EBBF8A1DA9D65C00F5C939 /* XSSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EBBF891DA9D65C00F5C939 /* XSSettingController.m */; };
+		18EBBF8E1DA9F1C600F5C939 /* XSToolCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EBBF8D1DA9F1C600F5C939 /* XSToolCache.m */; };
+		18EBBF911DAA212300F5C939 /* XSMassgeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EBBF901DAA212300F5C939 /* XSMassgeCell.m */; };
+		18EBBF971DAA581B00F5C939 /* XSToolUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EBBF961DAA581B00F5C939 /* XSToolUserInfo.m */; };
 		3A9FBB34A0CC3E42145E26B3 /* libPods-XSCoding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D39CA321FD4B6A9BE7995452 /* libPods-XSCoding.a */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +121,12 @@
 		1846ACD61D990CA300ECEE56 /* XSCodingPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSCodingPrefix.pch; sourceTree = "<group>"; };
 		1846ACD71D990DA900ECEE56 /* UIView+XSFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XSFrame.h"; sourceTree = "<group>"; };
 		1846ACD81D990DA900ECEE56 /* UIView+XSFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XSFrame.m"; sourceTree = "<group>"; };
+		185D3F3F1DA8D548007E30B7 /* XSMineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMineHeaderView.h; sourceTree = "<group>"; };
+		185D3F401DA8D548007E30B7 /* XSMineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMineHeaderView.m; sourceTree = "<group>"; };
+		185D3F421DA90C9F007E30B7 /* XSTapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSTapImageView.h; sourceTree = "<group>"; };
+		185D3F431DA90C9F007E30B7 /* XSTapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSTapImageView.m; sourceTree = "<group>"; };
+		185D3F451DA90F18007E30B7 /* NSAttributedString+XSAttributed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+XSAttributed.h"; sourceTree = "<group>"; };
+		185D3F461DA90F18007E30B7 /* NSAttributedString+XSAttributed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+XSAttributed.m"; sourceTree = "<group>"; };
 		18D511F51D9CB39600BADF58 /* XSLoginRequst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLoginRequst.h; sourceTree = "<group>"; };
 		18D511F61D9CB39600BADF58 /* XSLoginRequst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSLoginRequst.m; sourceTree = "<group>"; };
 		18D511F81D9CB59D00BADF58 /* XSToolHttpRequst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSToolHttpRequst.h; sourceTree = "<group>"; };
@@ -151,6 +164,14 @@
 		18E624AB1D9BB2BE006C4B37 /* XSCaptchaRespon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCaptchaRespon.m; sourceTree = "<group>"; };
 		18E624AD1D9BB4C7006C4B37 /* XSCaptchaImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XSCaptchaImage.h; path = ../Controller/XSCaptchaImage.h; sourceTree = "<group>"; };
 		18E624AE1D9BB4C7006C4B37 /* XSCaptchaImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XSCaptchaImage.m; path = ../Controller/XSCaptchaImage.m; sourceTree = "<group>"; };
+		18EBBF881DA9D65C00F5C939 /* XSSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSSettingController.h; sourceTree = "<group>"; };
+		18EBBF891DA9D65C00F5C939 /* XSSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSettingController.m; sourceTree = "<group>"; };
+		18EBBF8C1DA9F1C600F5C939 /* XSToolCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSToolCache.h; sourceTree = "<group>"; };
+		18EBBF8D1DA9F1C600F5C939 /* XSToolCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSToolCache.m; sourceTree = "<group>"; };
+		18EBBF8F1DAA212300F5C939 /* XSMassgeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMassgeCell.h; sourceTree = "<group>"; };
+		18EBBF901DAA212300F5C939 /* XSMassgeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMassgeCell.m; sourceTree = "<group>"; };
+		18EBBF951DAA581B00F5C939 /* XSToolUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSToolUserInfo.h; sourceTree = "<group>"; };
+		18EBBF961DAA581B00F5C939 /* XSToolUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSToolUserInfo.m; sourceTree = "<group>"; };
 		430EA0E7D7C3383AA253CF1F /* Pods-XSCoding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XSCoding.release.xcconfig"; path = "Pods/Target Support Files/Pods-XSCoding/Pods-XSCoding.release.xcconfig"; sourceTree = "<group>"; };
 		D39CA321FD4B6A9BE7995452 /* libPods-XSCoding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XSCoding.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E145BB2C67CC7D41F608C08D /* Pods-XSCoding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XSCoding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XSCoding/Pods-XSCoding.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,12 +266,12 @@
 		1846AC8B1D98CD2100ECEE56 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1846AC961D98CD2100ECEE56 /* Main */,
 				18D511FB1D9CC0FA00BADF58 /* WebViewController */,
 				18D622AB1D9A08EE00F6BE6F /* Macro */,
 				18D622AC1D9A08EE00F6BE6F /* Public */,
 				1846ACDE1D9922C100ECEE56 /* Login(登陆注册) */,
 				1846ACCC1D98F8A500ECEE56 /* Tool(工具类) */,
-				1846AC961D98CD2100ECEE56 /* Main */,
 				1846ACA41D98CD2100ECEE56 /* Project(项目) */,
 				1846ACA81D98CD2100ECEE56 /* Task(任务) */,
 				1846AC911D98CD2100ECEE56 /* Bubbling(冒泡) */,
@@ -297,6 +318,8 @@
 			children = (
 				18D622BC1D9A4B0400F6BE6F /* XSBaseTableViewCell.h */,
 				18D622BD1D9A4B0400F6BE6F /* XSBaseTableViewCell.m */,
+				185D3F421DA90C9F007E30B7 /* XSTapImageView.h */,
+				185D3F431DA90C9F007E30B7 /* XSTapImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +385,8 @@
 				181E80271D9E08710065C03D /* NSObject+XSAccess.m */,
 				181E802C1D9E4B430065C03D /* UITextField+XSTextField.h */,
 				181E802D1D9E4B430065C03D /* UITextField+XSTextField.m */,
+				185D3F451DA90F18007E30B7 /* NSAttributedString+XSAttributed.h */,
+				185D3F461DA90F18007E30B7 /* NSAttributedString+XSAttributed.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -431,6 +456,8 @@
 		1846AC9F1D98CD2100ECEE56 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18EBBF8F1DAA212300F5C939 /* XSMassgeCell.h */,
+				18EBBF901DAA212300F5C939 /* XSMassgeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,6 +477,8 @@
 			children = (
 				1846ACC51D98CFA000ECEE56 /* XSMineController.h */,
 				1846ACC61D98CFA000ECEE56 /* XSMineController.m */,
+				18EBBF881DA9D65C00F5C939 /* XSSettingController.h */,
+				18EBBF891DA9D65C00F5C939 /* XSSettingController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -464,6 +493,8 @@
 		1846ACA31D98CD2100ECEE56 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				185D3F3F1DA8D548007E30B7 /* XSMineHeaderView.h */,
+				185D3F401DA8D548007E30B7 /* XSMineHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -545,6 +576,8 @@
 		1846ACCC1D98F8A500ECEE56 /* Tool(工具类) */ = {
 			isa = PBXGroup;
 			children = (
+				18EBBF941DAA57F400F5C939 /* SaveAccount */,
+				18EBBF8B1DA9F1A200F5C939 /* ClearCache */,
 				18E6245F1D9B74D3006C4B37 /* RequestModel */,
 				18E624601D9B74D3006C4B37 /* ResponseModel */,
 				1846ACD01D99026400ECEE56 /* XSToolHttpManager.h */,
@@ -647,6 +680,24 @@
 				18D512081D9D071000BADF58 /* XSBaseTextFieldCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		18EBBF8B1DA9F1A200F5C939 /* ClearCache */ = {
+			isa = PBXGroup;
+			children = (
+				18EBBF8C1DA9F1C600F5C939 /* XSToolCache.h */,
+				18EBBF8D1DA9F1C600F5C939 /* XSToolCache.m */,
+			);
+			path = ClearCache;
+			sourceTree = "<group>";
+		};
+		18EBBF941DAA57F400F5C939 /* SaveAccount */ = {
+			isa = PBXGroup;
+			children = (
+				18EBBF951DAA581B00F5C939 /* XSToolUserInfo.h */,
+				18EBBF961DAA581B00F5C939 /* XSToolUserInfo.m */,
+			);
+			path = SaveAccount;
 			sourceTree = "<group>";
 		};
 		F4AF03DF126F731A909F1BA2 /* Frameworks */ = {
@@ -868,7 +919,12 @@
 				18E624AF1D9BB4C7006C4B37 /* XSCaptchaImage.m in Sources */,
 				181E802E1D9E4B430065C03D /* UITextField+XSTextField.m in Sources */,
 				18D622B81D9A200700F6BE6F /* XSPublicConstant.m in Sources */,
+				18EBBF911DAA212300F5C939 /* XSMassgeCell.m in Sources */,
 				1846ACC71D98CFA000ECEE56 /* XSMineController.m in Sources */,
+				18EBBF8E1DA9F1C600F5C939 /* XSToolCache.m in Sources */,
+				18EBBF971DAA581B00F5C939 /* XSToolUserInfo.m in Sources */,
+				185D3F441DA90C9F007E30B7 /* XSTapImageView.m in Sources */,
+				185D3F411DA8D548007E30B7 /* XSMineHeaderView.m in Sources */,
 				18E624AC1D9BB2BE006C4B37 /* XSCaptchaRespon.m in Sources */,
 				18E624A11D9BA3E3006C4B37 /* XSLoginController.m in Sources */,
 				181E80281D9E08710065C03D /* NSObject+XSAccess.m in Sources */,
@@ -883,6 +939,7 @@
 				1846ACD51D990A2D00ECEE56 /* XSHUDView.m in Sources */,
 				1846AC5A1D98C8BB00ECEE56 /* main.m in Sources */,
 				1846ACBE1D98CF6200ECEE56 /* XSTaskController.m in Sources */,
+				18EBBF8A1DA9D65C00F5C939 /* XSSettingController.m in Sources */,
 				18D511FE1D9CE4F400BADF58 /* XSWebController.m in Sources */,
 				18E624A01D9BA3E3006C4B37 /* XSGuideController.m in Sources */,
 				18D622BE1D9A4B0400F6BE6F /* XSBaseTableViewCell.m in Sources */,
@@ -890,6 +947,7 @@
 				1846ACD21D99026400ECEE56 /* XSToolHttpManager.m in Sources */,
 				1846ACB81D98CEE400ECEE56 /* XSBaseNavigationController.m in Sources */,
 				18D512091D9D071000BADF58 /* XSBaseTextFieldCell.m in Sources */,
+				185D3F471DA90F18007E30B7 /* NSAttributedString+XSAttributed.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

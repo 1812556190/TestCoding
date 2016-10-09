@@ -23,6 +23,15 @@
 #import "XSBackPassWordController.h"
 
 
+#import "XSHUDView.h"
+
+#import "XSUserInfo.h"
+
+#import "XSToolUserInfo.h"
+
+#import "AppDelegate.h"
+
+
 
 
 
@@ -124,6 +133,7 @@ static NSString *cellId = @"cellID";
     switch (cellIndex) {
         case 0:{
             cell.textPlaceholder = @"手机号码/电子邮箱/个性后缀";
+            cell.textTitle = [XSToolUserInfo obtainAccount];
             cell.textChangeBlock = ^(NSString *text){
                 weakSelf.requstModel.account = text;
             };
@@ -153,16 +163,16 @@ static NSString *cellId = @"cellID";
     return cell;
 }
 #pragma mark - <UITableViewDelegate>
-//设置边框线
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    // 这两句的含义跟上面两句代码相同,就不做解释了
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsMake(0, 18, 0, 18)];
-    }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsMake(0, 18, 0, 18)];
-    }
-}
+////设置边框线
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    // 这两句的含义跟上面两句代码相同,就不做解释了
+//    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+//        [cell setSeparatorInset:UIEdgeInsetsMake(0, 18, 0, 18)];
+//    }
+//    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+//        [cell setLayoutMargins:UIEdgeInsetsMake(0, 18, 0, 18)];
+//    }
+//}
 
 
 #pragma mark - btnAction
@@ -180,19 +190,39 @@ static NSString *cellId = @"cellID";
 - (IBAction)loginAction:(UIButton *)sender {
     [self.view endEditing:NO];
     
+    if (!self.requstModel.account) {
+        self.requstModel.account = [XSToolUserInfo obtainAccount];
+    }
     //1.验证登陆数据的合理性(正则)
     //2.数据处理
-    self.requstModel.remember_me = self.requstModel.account;
-    
+    self.requstModel.password = [self.requstModel.password stringWithSha1];
     //3.登陆请求
     __weak typeof(self) weakSelf = self;
+    [XSHUDView showLoadingProcessText:@"正在登陆..."];
+    
     [XSToolHttpRequst requstLoginParameter:self.requstModel.mj_keyValues withSuccessHander:^(id resulst, NSError *error) {
+        [XSHUDView hideHUD];
         if (error) {
             [weakSelf isNeedLoginCaptcha];
+            [XSHUDView showHUDViewError:error];
             _isRefreshCaptcha = YES;
         }else{
             //登陆成功后的处理
-            NSLog(@"登陆成功！");
+//            NSLog(@"%@",resulst);
+            
+            [XSToolUserInfo saveAccount:self.requstModel.account];//保存账号到属性列表
+            
+            AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            
+            [del setUpStartMainView];//加载主页面
+            
+            
+            
+//            NSLog(@"归档前----:%@",resulst[@"data"][@"name"]);
+            XSUserInfo *user = [XSUserInfo mj_objectWithKeyValues:resulst[@"data"]];
+            [user saveData];//归档
+//            NSLog(@"解档----:%@",[XSUserInfo obtainData].name);
+            
         }
     }];
     
